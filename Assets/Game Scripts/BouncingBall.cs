@@ -45,7 +45,7 @@ public class BouncingBall : MonoBehaviour
             gameLogic.losingScore(1);
         }
 
-        if (collision.relativeVelocity.magnitude > 2)
+        if (collision.relativeVelocity.magnitude > 0)
         {
             foreach(GameObject go in activeGameObjects)
             {
