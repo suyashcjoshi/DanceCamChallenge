@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JugglingBall : MonoBehaviour
+public class BouncingBall : MonoBehaviour
 {
     private Rigidbody rigidBody;
+
+    [SerializeField]
+    private GameObject[] activeGameObjects;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +32,15 @@ public class JugglingBall : MonoBehaviour
         }
         if (collision.relativeVelocity.magnitude > 2)
         {
-            rigidBody.velocity = new Vector3(0, 10, 0);
-            Debug.Log("And hits hard.");
+            foreach(GameObject go in activeGameObjects)
+            {
+                if(go.name == collision.collider.gameObject.name)
+                {
+                    rigidBody.velocity = new Vector3(0, 10, 0);
+                    Debug.Log("And hits hard.");
+                    break;
+                }
+            }
         }
     }
 }
