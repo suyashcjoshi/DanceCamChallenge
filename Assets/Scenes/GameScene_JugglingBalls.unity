@@ -369,7 +369,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 408822476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e006232396101e43a1c104726489103, type: 3}
+  m_Script: {fileID: 11500000, guid: f6454970bd6b23c4fa8c53879d9b993d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activeGameObjects:
@@ -380,6 +380,10 @@ MonoBehaviour:
   bouncingVelocity: 10
   bouncingOffRange: 1
   floorGameObjects: {fileID: 1053439552}
+  hasHold: 0
+  hasbeenDown: 0
+  hasbeenUp: 0
+  hasStopped: 0
 --- !u!1 &435331498 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100126, guid: 49f2055d53eeb4e5a92af590a44bddee, type: 3}
@@ -433,6 +437,26 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.075
   m_Center: {x: -0.075, y: 0, z: 0}
+--- !u!114 &494739463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435331498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebcfa31f758dd3e46a14032359ddef64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastPosition: {x: 0, y: 0, z: 0}
+  currentPosition: {x: 0, y: 0, z: 0}
+  currentVelocity: {x: 0, y: 0, z: 0}
+  velocityIndicatorGameObject: {fileID: 0}
+  VelocityState: Rest
+  smoothingFactor: 10
+  restThreshold: 0.005
+  attachedObject: {fileID: 0}
 --- !u!114 &499442782 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1055126577752158228, guid: 1eb6969b7ef8ed44a9a446e718710222, type: 3}
@@ -692,7 +716,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 602989420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e006232396101e43a1c104726489103, type: 3}
+  m_Script: {fileID: 11500000, guid: f6454970bd6b23c4fa8c53879d9b993d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activeGameObjects:
@@ -703,6 +727,10 @@ MonoBehaviour:
   bouncingVelocity: 10
   bouncingOffRange: 1
   floorGameObjects: {fileID: 1053439552}
+  hasHold: 0
+  hasbeenDown: 0
+  hasbeenUp: 0
+  hasStopped: 0
 --- !u!1 &664772507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,6 +1787,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100126, guid: 49f2055d53eeb4e5a92af590a44bddee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 435331500}
+    - targetCorrespondingSourceObject: {fileID: 100126, guid: 49f2055d53eeb4e5a92af590a44bddee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 494739463}
     - targetCorrespondingSourceObject: {fileID: 100150, guid: 49f2055d53eeb4e5a92af590a44bddee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 791830303}
@@ -1777,6 +1808,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100064, guid: 49f2055d53eeb4e5a92af590a44bddee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1117050878}
+    - targetCorrespondingSourceObject: {fileID: 100064, guid: 49f2055d53eeb4e5a92af590a44bddee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1117050881}
   m_SourcePrefab: {fileID: 100100000, guid: 49f2055d53eeb4e5a92af590a44bddee, type: 3}
 --- !u!1 &791830298 stripped
 GameObject:
@@ -2353,6 +2387,26 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.075
   m_Center: {x: -0.075, y: 0, z: 0}
+--- !u!114 &1117050881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117050876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebcfa31f758dd3e46a14032359ddef64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastPosition: {x: 0, y: 0, z: 0}
+  currentPosition: {x: 0, y: 0, z: 0}
+  currentVelocity: {x: 0, y: 0, z: 0}
+  velocityIndicatorGameObject: {fileID: 0}
+  VelocityState: Rest
+  smoothingFactor: 10
+  restThreshold: 0.005
+  attachedObject: {fileID: 0}
 --- !u!1 &1232159305
 GameObject:
   m_ObjectHideFlags: 0
@@ -2544,7 +2598,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1281866084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e006232396101e43a1c104726489103, type: 3}
+  m_Script: {fileID: 11500000, guid: f6454970bd6b23c4fa8c53879d9b993d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activeGameObjects:
@@ -2555,6 +2609,10 @@ MonoBehaviour:
   bouncingVelocity: 10
   bouncingOffRange: 1
   floorGameObjects: {fileID: 1053439552}
+  hasHold: 0
+  hasbeenDown: 0
+  hasbeenUp: 0
+  hasStopped: 0
 --- !u!1 &1344243060
 GameObject:
   m_ObjectHideFlags: 0
@@ -2826,7 +2884,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1492387511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e006232396101e43a1c104726489103, type: 3}
+  m_Script: {fileID: 11500000, guid: f6454970bd6b23c4fa8c53879d9b993d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activeGameObjects:
@@ -2837,6 +2895,10 @@ MonoBehaviour:
   bouncingVelocity: 10
   bouncingOffRange: 1
   floorGameObjects: {fileID: 1053439552}
+  hasHold: 0
+  hasbeenDown: 0
+  hasbeenUp: 0
+  hasStopped: 0
 --- !u!54 &1589271423
 Rigidbody:
   m_ObjectHideFlags: 0
