@@ -108,11 +108,14 @@ public class JugglingBall : MonoBehaviour
         }
     }
 
-    private void Throw()
+    private void Throw(bool powerThrow = false)
     {
         // Bounce now
         rigidBody.isKinematic = false;
-        rigidBody.velocity = new Vector3(Random.Range(bouncingOffRange, -bouncingOffRange), bouncingVelocity, 0);
+        if(powerThrow)
+            rigidBody.velocity = new Vector3(Random.Range(bouncingOffRange, -bouncingOffRange), bouncingVelocity, 0);
+        else
+            rigidBody.velocity = new Vector3(Random.Range(bouncingOffRange, -bouncingOffRange), bouncingVelocity * 2.0f, 0);
 
         DetectHandVelocity detectHandVelocity = this.transform.parent.GetComponent<DetectHandVelocity>();
         detectHandVelocity.attachedObject = null;
