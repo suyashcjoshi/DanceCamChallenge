@@ -4,7 +4,7 @@ Webcam based dancing game.
 
 A fun project made during Global Game Jam 2024 at Goldsmiths, Univ. of London.
 
-###Team:
+### Team
 
-Suyash
-William
+- Suyash
+- William
